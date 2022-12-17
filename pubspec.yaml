@@ -1,7 +1,7 @@
 name: responsive_mobile
-description: Make responsibles apps
-version: 0.0.1
-homepage:
+description: Make responsives apps
+version: 1.0.0
+homepage: https://github.com/marcelosilva351/responsive_mobile
 
 environment:
   sdk: '>=2.18.2 <3.0.0'

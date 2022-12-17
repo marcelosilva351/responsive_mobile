@@ -11,31 +11,77 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: A package that helps you a make a responsive app, get the devices sizes by inches.
+A package that helps you a make a responsive apps, get the devices sizes by inches.
 
 ## Features
 
-TODO: 
-ScreenSize.getHeight() - gets the device height
+ScreenSize.getHeight(context) - returns the device height
 
-ScreenSize.getWidth() - gets the device width
+ScreenSize.getWidth(context) - returns the device width
 
-isSmallScreen4Inches() - return if the device is lower than 4 inches
+ScreenSize.getHeightPercentage(context, double percentage) - gets the device height with the percentage that you need
 
-isSmallScreen5Inches() - return if the device is lower than 5 inches
+ScreenSize.getWidthPercentage(context, double percentage) - gets the device height with the percentage that you need
 
-isLarge6Inches() - return if the device is lower6 inches
+isSmallScreen4Inches(context) - return true if the device is lower than 4 inches
 
-isLarge6Halfnches()() - return if the device is lower than 6.5 inches
+isSmallScreen5Inches(context) - return true if the device is lower than 5 inches
+
+isLarge6Inches(context) - return true if the device is lower6 inches
+
+isLarge6Halfnches()(context) - return true if the device is lower than 6.5 inches
+
+getAllDevicesInchesWidth() - return the width double value for all inchs options, just pass how much % you need for each inch
+
+getAllDevicesInchesHeight() - return the height double value for all inchs options, just pass how much % you need for each inch
 
 ## Getting started
 
-TODO: Install the package, after that just call the ScreenSize class and call the method that it is better for you
+Install the package on your pubspec.yaml, after that just call the ScreenSize class and call the static method that it is better for you
 
 ## Usage
 
-TODO: 
+EXAMPLES - 
 
-## Additional information
+HALF DEVICE FOR A CONTAINER:
 
-TODO:  
+Container(
+    width: ScreenSize.getWidth(context) * 0.2,
+    height: ScreenSize.getHeight
+)
+
+OR
+
+
+Container(
+    width: ScreenSize.getWidthPercentage(context, 0.2),
+    height: ScreenSize.getHeight
+)
+
+
+CHANGE THE SIZE OF SOMETHING WITH THE PACKAGE:
+
+TextStyleParams(
+   text: 'exemple',
+   fontSize: ScreenSize.isSmallScreen4Inches(context)
+                                          ? 8
+                                          : 12,
+   fontWeight: FontWeight.normal)
+
+
+MAKE A RESPONSIVE WIDGET FOR ALL DEVICES:
+
+Padding(
+   padding: EdgeInsets.only(
+   bottom: ScreenSize.getHeight(context) * 0.04,
+   right: ScreenSize.getAllDevicesInchesWidth(context, 0.16, 0.15, 0.13, 00.85, 0.080)),
+                        child: const Icon(
+                          Icons.add,
+                          color: Colors.blue,
+                        ),
+                      );
+
+
+
+
+

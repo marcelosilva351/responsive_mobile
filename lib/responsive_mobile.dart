@@ -7,9 +7,19 @@ class ScreenSize {
     return MediaQuery.of(context).size.height;
   }
 
+    static double getHeightPercentage(BuildContext context, double percentage) {
+    return MediaQuery.of(context).size.height * percentage;
+  }
+  
+
   static double getWidth(BuildContext context) {
     return MediaQuery.of(context).size.width;
   }
+
+   static double getWidthPercentage (BuildContext context, double percentage) {
+    return MediaQuery.of(context).size.width * percentage;
+  }
+
 
   static bool isSmallScreen4Inches(BuildContext context) {
     return ScreenSize.getWidth(context) < 321 &&
@@ -31,47 +41,49 @@ class ScreenSize {
         ScreenSize.getHeight(context) < 897;
   }
 
+
+
   static double getAllDevicesInchesWidth(
       BuildContext context,
-      double porcent4inches,
-      double porcent5inches,
-      double porcent6inches,
-      double porcent6Halfinches,
-      double porcentElse) {
+      double percent4inches,
+      double percent5inches,
+      double percent6inches,
+      double percent6Halfinches,
+      double percentElse) {
     if (isSmallScreen4Inches(context)) {
-      return ScreenSize.getWidth(context) * porcent4inches;
+      return ScreenSize.getWidth(context) * percent4inches;
     }
     if (isSmallScreen5Inches(context)) {
-      return ScreenSize.getWidth(context) * porcent5inches;
+      return ScreenSize.getWidth(context) * percent5inches;
     }
     if (isLarge6inches(context)) {
-      return ScreenSize.getWidth(context) * porcent6inches;
+      return ScreenSize.getWidth(context) * percent6inches;
     }
     if (isLarge6AndHalfinches(context)) {
-      return ScreenSize.getWidth(context) * porcent6Halfinches;
+      return ScreenSize.getWidth(context) * percent6Halfinches;
     }
-    return ScreenSize.getWidth(context) * porcentElse;
+    return ScreenSize.getWidth(context) * percentElse;
   }
 
   static double getAllDevicesInchesHeight(
       BuildContext context,
-      double porcent4inches,
-      double porcent5inches,
-      double porcent6inches,
-      double porcent6Halfinches,
-      double porcentElse) {
+      double percent4inches,
+      double percent5inches,
+      double percent6inches,
+      double percent6Halfinches,
+      double percentElse) {
     if (isSmallScreen4Inches(context)) {
-      return ScreenSize.getHeight(context) * porcent4inches;
+      return ScreenSize.getHeight(context) * percent4inches;
     }
     if (isSmallScreen5Inches(context)) {
-      return ScreenSize.getHeight(context) * porcent5inches;
+      return ScreenSize.getHeight(context) * percent5inches;
     }
     if (isLarge6inches(context)) {
-      return ScreenSize.getHeight(context) * porcent6inches;
+      return ScreenSize.getHeight(context) * percent6inches;
     }
     if (isLarge6AndHalfinches(context)) {
-      return ScreenSize.getHeight(context) * porcent6inches;
+      return ScreenSize.getHeight(context) * percent6inches;
     }
-    return ScreenSize.getHeight(context) * porcentElse;
+    return ScreenSize.getHeight(context) * percentElse;
   }
 }
